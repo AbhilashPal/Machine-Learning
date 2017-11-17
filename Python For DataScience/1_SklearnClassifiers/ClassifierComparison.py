@@ -1,9 +1,9 @@
 
-from sklearn import tree 							              # Classifier #1
-from sklearn.svm import SVC							            # Classifier #2
-from sklearn.neural_network import MLPClassifier	  # Classifier #3
-from sklearn.neighbors import KNeighborsClassifier	# Classifier #4
-from sklearn.ensemble import RandomForestClassifier	# Classifier #5
+from sklearn import tree 							              	# Classifier #1
+from sklearn.svm import SVC							   	        # Classifier #2
+from sklearn.neural_network import MLPClassifier	  					# Classifier #3
+from sklearn.neighbors import KNeighborsClassifier						# Classifier #4
+from sklearn.ensemble import RandomForestClassifier						# Classifier #5
 
 from sklearn.metrics import accuracy_score
 def classifier(n):
