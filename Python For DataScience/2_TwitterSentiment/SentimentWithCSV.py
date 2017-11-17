@@ -16,8 +16,8 @@ api = tweepy.API(auth)
 
 
 # Searching using the API 
-#search = input("Enter an item to search on Twitter : ")
-public_tweets = api.search("Tesla")
+sr = str(input("Enter An Item to try Sentiment Analysis:"))
+public_tweets = api.search(sr, count=100)
 
 # Opening a new CSV file
 path = "D:\mlclass\PyHub\SirajRaval\Python For Data Science\#1 Sklearn Classifiers\Tweet_Sentiment.csv"
@@ -27,7 +27,6 @@ writer.writerow(["RECORD NUMBER","TWEET","SENTIMENT","SENTIMENT RATING(-1 to +1)
 
 c= 0
 for tweet in public_tweets:		# Iterate Through.
-	#print(tweet.text)
 	c+=1
 	analysis = TextBlob(tweet.text)
 	if float(analysis.sentiment[0]) > 0:
@@ -36,5 +35,8 @@ for tweet in public_tweets:		# Iterate Through.
 		senti = "Negative"
 	else:
 		senti = "Neutral"
-	writer.writerow([c,tweet.text.encode("utf8").decode("utf8","ignore"),senti,analysis.sentiment[0]])
+	try:
+		writer.writerow([c,tweet.text.encode("utf-8").decode("utf-8",'ignore'),senti,analysis.sentiment[0]])
+	except UnicodeEncodeError:
+		pass
 print("Files written to Tweet_Sentiment.csv alongside the Sentiment Generated.")
