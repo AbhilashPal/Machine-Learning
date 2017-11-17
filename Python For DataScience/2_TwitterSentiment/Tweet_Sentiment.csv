@@ -1,0 +1,20 @@
+RECORD NUMBER,TWEET,SENTIMENT,SENTIMENT RATING(-1 to +1)
+1,RT @AJ: This is about to change everything. #teslasemi https://t.co/GMrbTAlTll,Neutral,0.0
+2,"RT @6Gwen: @Tesla Seriously, i'm very tired. Hurry up Elon. https://t.co/mN5U36o8f4",Negative,-0.52
+3,@SpaceXTrip @Ustream @Tesla Gonna do truck racing in it?,Neutral,0.0
+4,"RT @zerohedge: Watch Live: Tesla Unveils Its ""Mind-Blowing"" Semi-Truck https://t.co/xjgkUHrfHs",Positive,0.13636363636363635
+5,RT @liteshgawande: @Tesla Whenever you’re ready. https://t.co/A866foM5pE,Positive,0.2
+6,RT @stevelevine: I registered to watch the Tesla semi-truck unveil and was registered to buy one. https://t.co/WYnYyKWJoA,Neutral,0.0
+7,@tesla why am i sweating,Neutral,0.0
+8,"RT @autonews_west: Regardless of how you feel about Tesla, it's pretty remarkable that a vastly unprofitable company is able to attract hun…",Positive,0.375
+9,@Tesla Oh please come on with the great truck reveal; its 5:21am here and will fall asleep soon listening to your h… https://t.co/No1sMSvkl6,Positive,0.8
+10,Tesla ska visa upp sin nya #teslasemi lastbil nu. Lite belöning ska man ha för att vara uppe fem på morgonen,Neutral,0.0
+11,"RT @tsrandall: The Tesla Semi event is taking place in an airport hangar in Hawthorne, behind the Tesla Design Studio. There's an active ru…",Negative,-0.26666666666666666
+12,@Vlntno01 @Tesla thanks bruv :),Positive,0.35
+13,"RT @WIREDTransport: While Elon takes his sweet time, here's everything we know about the Tesla Semi ahead of its unveil: https://t.co/fCob5…",Positive,0.35
+14,RT @goodreads: Billionaire Elon Musk says he was 'raised by books' and credits his success to these 8 https://t.co/dqFwEYppIy https://t.co/…,Positive,0.3
+15,"RT @mikegee: Wife: “What are you watching?”
+
+Me: “The Tesla Semi Unveil”
+
+Wife: “Why aren’t they unveiling the whole thing?”",Positive,0.2
