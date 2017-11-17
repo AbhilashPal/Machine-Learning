@@ -13,6 +13,6 @@ Contents :
  
 2) Twitter for Sentiment Analysis
 
-  2.1) Siraj's Code
-  
-  2.2) My Code
+  2.1) Siraj's Code = SentimentAnalysis
+   
+  2.2) My Code = SentimentwithCSV. 
