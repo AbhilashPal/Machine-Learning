@@ -16,8 +16,8 @@ api = tweepy.API(auth)
 
 
 # Searching using the API 
-search = input("Enter an item to search on Twitter : ")
-public_tweets = api.search(str(search))
+#search = input("Enter an item to search on Twitter : ")
+public_tweets = api.search("Tesla")
 
 # Opening a new CSV file
 path = "D:\mlclass\PyHub\SirajRaval\Python For Data Science\#1 Sklearn Classifiers\Tweet_Sentiment.csv"
