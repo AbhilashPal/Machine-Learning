@@ -13,18 +13,21 @@ This dataset is designed to look like the classic MNIST dataset, while looking a
 
  # These are all the modules we'll be using later. Make sure you can import them
 # before proceeding further.
-from __future__ import print_function					# for printing I guess
-import imageio											# for image input output
-import matplotlib.pyplot as plt 						# plotting
-import numpy as np 									    # matmul
-import os												# file handling
-import sys												# system management
-import tarfile 										   	# zipfile unzip
-from IPython.display import display, Image 				# image display in ipython.
-from sklearn.linear_model import LogisticRegression 	# main model
-from six.moves.urllib.request import urlretrieve		# url rewuest to download the dataset I guess
-from six.moves import cPickle as pickle 				# pickle to read dat files
-import random 										    # because numpy.random is giving same result always
+from __future__ import print_function					            	# for printing I guess
+import imageio										# for image input output
+import matplotlib.pyplot as plt 						        # plotting
+import numpy as np 									# matmul
+import os										# file handling
+import sys										# system management
+import tarfile 										# zipfile unzip
+from IPython.display import display, Image 				                # image display in ipython.
+from sklearn.linear_model import LogisticRegression 	    			        # main model
+from sklearn import tree
+from six.moves.urllib.request import urlretrieve		                        # url request to download the dataset I guess
+from six.moves import cPickle as pickle 			                 	# pickle to read dat files
+import random 							                        # because numpy.random is giving same result always
+from sklearn.metrics import accuracy_score
+from sklearn.neural_network import MLPClassifier                                        # Classifier Cool
 # Config the matplotlib backend as plotting inline in IPython
 #%matplotlib inline
 
@@ -435,7 +438,7 @@ Problem 5:
 By construction, this dataset might contain a lot of overlapping samples, including training data that's also contained 
 in the validation and test set! Overlap between training and test can skew the results if you expect to use your model in 
 an environment where there is never an overlap, but are actually ok if you expect to see training samples recur when you use it.
-Measure how much overlap there is between training, validation and test samples.
+ Measure how much overlap there is between training, validation and test samples.
 
 Optional questions:
 
@@ -444,31 +447,58 @@ Create a sanitized validation and test set, and compare your accuracy on those i
 
 """
 
+"""
+Need a bloody TitanXP or do GPU programming on this one. Taking too friggin' long.
 
-print("=======================")
 with open('notMNIST.pickle','rb') as f:
-	setofstuff = pickle.load(f)
-	print(setofstuff)
+  setofstuff = pickle.load(f)
+  data = setofstuff['train_dataset']
 
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  label = setofstuff['train_labels']
 
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  valid = setofstuff['valid_dataset']
 
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  validl = setofstuff['valid_labels']
 
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  test = setofstuff['valid_dataset']
 
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  testl = setofstuff['valid_labels']
 
+data = data.reshape(data.shape[0],-1)
+valid = valid.reshape(valid.shape[0],-1)
+test = test.reshape(test.shape[0],-1)
+sanityValid = np.array(valid[0])
+sanityTest = np.array(test[0])
+sanityValidLabel = np.array(validl[0])
+sanityTestLabel = np.array(testl[0])
+np.delete(sanityValid,0,0)
+np.delete(sanityTest,0,0)
+np.delete(sanityValidLabel,0,0)
+np.delete(sanityTestLabel,0,0)
+#deleting duplicates
+for i in range(data.shape[0]):
+  if i==10000:
+    print("=")
+  for j in range(valid.shape[0]):
+    if data[i].all()!=valid[j].all():
+      sanityValid.append(valid[j])
+  for j in range(test.shape[0]):
+    if data[i].all()!=test[j].all():
+      sanityTest.append(test[j])    
+print(sanityValid.shape)
+print(sanityTest.shape)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+"""
 
 
 
@@ -504,6 +534,33 @@ Optional question: train an off-the-shelf model on all the data!
 
 
 
+
+
+
+
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  data = setofstuff['train_dataset']
+
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  label = setofstuff['train_labels']
+
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  valid = setofstuff['valid_dataset']
+
+with open('notMNIST.pickle','rb') as f:
+  setofstuff = pickle.load(f)
+  validl = setofstuff['valid_labels']
+  
+data = data.reshape(data.shape[0],-1)
+valid = valid.reshape(valid.shape[0],-1)
+clf = MLPClassifier(alpha=0.0001)
+clf.fit(data,label)
+prediction = clf.predict(valid)
+accscore = accuracy_score(validl,prediction)
+print("Final accuracy score is ",accscore)
 
 
 
